@@ -1,0 +1,26 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Looker Dashboard Embed</title>
+</head>
+
+<body>
+	<h1>Embedded Looker Dashboard Demo</h1>
+	<iframe id="looker-embed" width="100%" height="800px" frameborder="0"></iframe>
+
+	<script>
+		fetch('/embed-url')
+			.then(response => response.json())
+			.then(data =>
+			{
+				document.getElementById('looker-embed').src = data.embedUrl;
+			})
+			.catch(error => console.error('Error loading embed URL:', error));
+	</script>
+</body>
+
+</html>
